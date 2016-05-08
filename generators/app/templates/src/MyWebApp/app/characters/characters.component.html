@@ -1,0 +1,14 @@
+﻿<div class="card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Characters</h2>
+    </div>
+    <div class="mdl-list">
+        <div class="mdl-list__item" *ngFor="#character of characters">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>{{character}}</span>
+            </span>
+            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+        </div>
+    </div>
+</div>
