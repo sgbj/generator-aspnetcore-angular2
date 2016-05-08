@@ -28,9 +28,13 @@ What it looks like:
 
 ![Console](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/console.png)
 
+What you get:
+
 ![Characters](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/characters.png)
 
 ![About](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/about.png)
+
+Swagger API docs:
 
 ![Swagger](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/swagger.png)
 
