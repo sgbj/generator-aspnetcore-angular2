@@ -43,7 +43,7 @@ module.exports = yeoman.generators.Base.extend({
     this.log(chalk.red('\nCreating files...\n'));
     
     this.fs.copy(
-      this.templatePath('.gitignore'),
+      this.templatePath('ignorefile'),
       this.destinationPath(dir, '.gitignore')
     );
     this.fs.copy(
