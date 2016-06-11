@@ -2,10 +2,9 @@
 > Generate a Visual Studio project for ASP.NET Core, Angular 2, and TypeScript
 
 * Visual Studio 2015 Update 2
-* ASP.NET Core RC1
-* Angular 2 Beta 15
+* ASP.NET Core RC2
+* Angular 2 RC1
 * Material Design Lite
-* Swagger (Swashbuckle)
 
 ## Installation
 
@@ -22,6 +21,18 @@ Then generate your new project:
 yo aspnetcore-angular2
 ```
 
+## command line
+
+From the root folder, type the following commands:
+
+```
+cd src/webapp
+npm install
+tsc
+dotnet restore
+dotnet run
+```
+
 ## Result
 
 What it looks like:
@@ -30,13 +41,9 @@ What it looks like:
 
 What you get:
 
-![Characters](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/characters.png)
+![Home](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/home.png)
 
 ![About](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/about.png)
-
-Swagger API docs:
-
-![Swagger](https://raw.githubusercontent.com/sgbj/generator-aspnetcore-angular2/master/screenshots/swagger.png)
 
 ## Getting To Know Yeoman
 

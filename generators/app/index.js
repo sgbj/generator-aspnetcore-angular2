@@ -34,10 +34,9 @@ module.exports = yeoman.generators.Base.extend({
   writing: function () {
     var safeName = this.props.appName.replace(/^[^a-zA-Z]+/, '').replace(/[^a-zA-Z0-9]/g, '');
     if (safeName.length == 0) {
-      safeName = 'MyWebApp';
+      safeName = 'WebApp';
     }
     this.props.safeName = safeName;
-    this.props.safeNameLower = safeName.toLowerCase();
     var dir = this.props.createDir ? safeName : '';
     
     this.log(chalk.red('\nCreating files...\n'));
@@ -51,25 +50,25 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath(dir, 'global.json')
     );
     this.template(
-      this.templatePath('MyWebApp.sln'),
+      this.templatePath('WebApp.sln'),
       this.destinationPath(dir, safeName + '.sln'),
       this.props
     );
-    ['appsettings.json', 'gulpfile.js', 'package.json', 'project.json', 'Startup.cs', 'tsconfig.json'].forEach(function (file) {
+    ['appsettings.json', 'package.json', 'project.json', 'Program.cs', 'Startup.cs', 'tsconfig.json', 'web.config'].forEach(function (file) {
       this.template(
-        this.templatePath('src/MyWebApp', file),
+        this.templatePath('src/WebApp', file),
         this.destinationPath(dir, 'src', safeName, file),
         this.props
       );
     }.bind(this));
     this.template(
-      this.templatePath('src/MyWebApp/MyWebApp.xproj'),
+      this.templatePath('src/WebApp/WebApp.xproj'),
       this.destinationPath(dir, 'src', safeName, safeName + '.xproj'),
       this.props
     );
-    ['app', 'Controllers', 'Properties', 'Views'].forEach(function (file) {
+    ['Api', 'Controllers', 'Properties', 'Views', 'wwwroot'].forEach(function (file) {
       this.template(
-        this.templatePath('src/MyWebApp', file),
+        this.templatePath('src/WebApp', file),
         this.destinationPath(dir, 'src', safeName, file),
         this.props
       );
