@@ -38,7 +38,7 @@ namespace <%= safeName %>
 
             app.UseStaticFiles();
 
-            app.UseStaticFiles(new StaticFileOptions()
+            app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
                 RequestPath = new PathString("/node_modules")
@@ -46,11 +46,7 @@ namespace <%= safeName %>
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{*path}",
-                    defaults: new { controller = "home", action = "index" }
-                );
+                routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
             });
         }
     }
