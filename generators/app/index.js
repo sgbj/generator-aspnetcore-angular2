@@ -21,6 +21,12 @@ module.exports = yeoman.generators.Base.extend({
       name: 'createDir',
       message: 'Want me to create the directory for you?',
       default: true
+    },
+    {
+      type: 'confirm',
+      name: 'vsCode',
+      message: 'Want me to generate VS Code debug configuration?',
+      default: true
     }];
 
     this.prompt(prompts, function (props) {
@@ -61,6 +67,13 @@ module.exports = yeoman.generators.Base.extend({
         this.props
       );
     }.bind(this));
+    if (this.props.vsCode) {
+      this.template(
+        this.templatePath('src/WebApp/.vscode'),
+        this.destinationPath(dir, 'src', safeName, '.vscode'),
+        this.props
+      );
+    }
     this.template(
       this.templatePath('src/WebApp/WebApp.xproj'),
       this.destinationPath(dir, 'src', safeName, safeName + '.xproj'),
@@ -74,8 +87,17 @@ module.exports = yeoman.generators.Base.extend({
       );
     }.bind(this));
   },
-  
-  end: function () {
-    this.log(chalk.red('\nHave fun working on ' + this.props.appName + '! <3'));
+
+
+  install: function () {
+    this.log('\n' + chalk.red('Installing npm dependencies...') + '\n');
+    if (this.props.createDir) {
+      process.chdir(this.destinationPath(this.props.safeName, 'src', this.props.safeName));
+    } else {
+      process.chdir(this.destinationPath('src', this.props.safeName));
+    }
+    this.npmInstall('', function () {
+      this.log(chalk.red('\nHave fun working on ' + this.props.appName + '! <3'));
+    }.bind(this));
   }
 });
