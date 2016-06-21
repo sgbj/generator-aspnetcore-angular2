@@ -15,6 +15,7 @@
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app': { main: 'main.js', defaultExtension: 'js' },
+        '@angular/router': { main: 'index.js', defaultExtension: 'js' },
         'rxjs': { defaultExtension: 'js' },
     };
 
@@ -25,9 +26,6 @@
       'http',
       'platform-browser',
       'platform-browser-dynamic',
-      'router',
-      'router-deprecated',
-      'upgrade',
     ];
 
     // Individual files (~300 requests):
@@ -37,7 +35,7 @@
 
     // Bundled (~40 requests):
     function packUmd(pkgName) {
-        packages['@angular/' + pkgName] = { main: pkgName + '.umd.js', defaultExtension: 'js' };
+        packages['@angular/' + pkgName] = { main: 'bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
     }
 
     var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
