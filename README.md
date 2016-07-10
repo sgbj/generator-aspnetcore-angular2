@@ -1,10 +1,13 @@
 # generator-aspnetcore-angular2
-> Generate a Visual Studio project for ASP.NET Core, Angular 2, and TypeScript
+> Generate a Visual Studio/Code project for ASP.NET Core, Angular 2, and TypeScript
 
-* Visual Studio 2015 Update 2
-* ASP.NET Core RC2
-* Angular 2 RC1
+* Visual Studio 2015 Update 3
+* Visual Studio Code
+* [ASP.NET Core 1.0](https://www.microsoft.com/net/core)
+* Angular 2 RC4
 * Material Design Lite
+* Swagger via [Swashbuckle (Ahoy)](https://github.com/domaindrivendev/Ahoy)
+
 
 ## Installation
 
