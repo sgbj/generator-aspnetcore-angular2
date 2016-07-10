@@ -1,7 +1,7 @@
 {
   "name": "generator-aspnetcore-angular2",
-  "version": "2.0.2",
-  "description": "Generate a Visual Studio project for ASP.NET Core, Angular 2, and TypeScript",
+  "version": "2.0.3",
+  "description": "Generate a Visual Studio/Code project for ASP.NET Core, Angular 2, and TypeScript",
   "homepage": "https://github.com/sgbj/generator-aspnetcore-angular2",
   "author": {
     "name": "sgbj",
@@ -21,12 +21,14 @@
     "aspnet core",
     "angular",
     "angular2",
-    "typescript"
+    "typescript",
+    "swagger",
+    "swashbuckle"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.21.1",
+    "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.2"
+    "yosay": "^1.0.0"
   },
   "repository": "git@github.com:sgbj/generator-aspnetcore-angular2.git",
   "license": "MIT"

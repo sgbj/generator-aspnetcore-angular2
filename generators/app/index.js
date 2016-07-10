@@ -3,10 +3,8 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
   prompting: function () {
-    var done = this.async();
-
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the stylish ' + chalk.red('aspnetcore-angular2') + ' generator!'
@@ -27,62 +25,67 @@ module.exports = yeoman.generators.Base.extend({
       name: 'vsCode',
       message: 'Want me to generate VS Code debug configuration?',
       default: true
+    },
+    {
+      type: 'confirm',
+      name: 'swagger',
+      message: 'Want me to include Swagger?',
+      default: true
     }];
 
-    this.prompt(prompts, function (props) {
-      this.props = props;
-      // To access props later use this.props.someOption;
+    return this.prompt(prompts).then(function (props) {
+      var safeName = props.appName.replace(/^[^a-zA-Z]+/, '').replace(/[^a-zA-Z0-9]/g, '');
+      
+      if (safeName.length == 0) {
+        safeName = 'WebApp';
+      }
 
-      done();
+      props.safeName = safeName;
+      props.dir = props.createDir ? safeName : '';
+
+      this.props = props;
     }.bind(this));
   },
 
   writing: function () {
-    var safeName = this.props.appName.replace(/^[^a-zA-Z]+/, '').replace(/[^a-zA-Z0-9]/g, '');
-    if (safeName.length == 0) {
-      safeName = 'WebApp';
-    }
-    this.props.safeName = safeName;
-    var dir = this.props.createDir ? safeName : '';
-    
     this.log(chalk.red('\nCreating files...\n'));
     
     this.fs.copy(
       this.templatePath('ignorefile'),
-      this.destinationPath(dir, '.gitignore')
+      this.destinationPath(this.props.dir, '.gitignore')
     );
     this.fs.copy(
       this.templatePath('global.json'),
-      this.destinationPath(dir, 'global.json')
+      this.destinationPath(this.props.dir, 'global.json')
     );
     this.template(
       this.templatePath('WebApp.sln'),
-      this.destinationPath(dir, safeName + '.sln'),
+      this.destinationPath(this.props.dir, this.props.safeName + '.sln'),
       this.props
     );
     ['appsettings.json', 'package.json', 'project.json', 'Program.cs', 'Startup.cs', 'tsconfig.json', 'web.config'].forEach(function (file) {
       this.template(
         this.templatePath('src/WebApp', file),
-        this.destinationPath(dir, 'src', safeName, file),
+        this.destinationPath(this.props.dir, 'src', this.props.safeName, file),
         this.props
       );
     }.bind(this));
     if (this.props.vsCode) {
       this.template(
         this.templatePath('src/WebApp/.vscode'),
-        this.destinationPath(dir, 'src', safeName, '.vscode'),
+        this.destinationPath(this.props.dir, 'src', this.props.safeName, '.vscode'),
         this.props
       );
     }
     this.template(
       this.templatePath('src/WebApp/WebApp.xproj'),
-      this.destinationPath(dir, 'src', safeName, safeName + '.xproj'),
+      this.destinationPath(this.props.dir, 'src', this.props.safeName, this.props.safeName + '.xproj'),
       this.props
     );
     ['Api', 'Controllers', 'Properties', 'Views', 'wwwroot'].forEach(function (file) {
       this.template(
         this.templatePath('src/WebApp', file),
-        this.destinationPath(dir, 'src', safeName, file),
+        this.destinationPath(this.props.dir, 'src', this.props.safeName, file),
         this.props
       );
     }.bind(this));

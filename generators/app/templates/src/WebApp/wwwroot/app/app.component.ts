@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
-import { Router, ROUTER_DIRECTIVES, NavigationEnd, Event } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 
 @Component({
@@ -10,12 +10,5 @@ import { Router, ROUTER_DIRECTIVES, NavigationEnd, Event } from '@angular/router
     providers: [HTTP_PROVIDERS],
     directives: [ROUTER_DIRECTIVES]
 })
-export class AppComponent implements OnInit {
-
-    constructor(private router: Router) { }
-
-    ngOnInit() {
-        this.router.events
-            .subscribe(() => setTimeout(() => componentHandler.upgradeAllRegistered(), 250));
-    }
+export class AppComponent {
 }
