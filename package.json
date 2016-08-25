@@ -1,6 +1,6 @@
 {
   "name": "generator-aspnetcore-angular2",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Generate a Visual Studio/Code project for ASP.NET Core, Angular 2, and TypeScript",
   "homepage": "https://github.com/sgbj/generator-aspnetcore-angular2",
   "author": {
