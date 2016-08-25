@@ -63,7 +63,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.props.dir, this.props.safeName + '.sln'),
       this.props
     );
-    ['appsettings.json', 'package.json', 'project.json', 'Program.cs', 'Startup.cs', 'tsconfig.json', 'web.config'].forEach(function (file) {
+    ['appsettings.json', 'package.json', 'project.json', 'Program.cs', 'Startup.cs', 'tsconfig.json', 'web.config', 'typings.json'].forEach(function (file) {
       this.template(
         this.templatePath('src/WebApp', file),
         this.destinationPath(this.props.dir, 'src', this.props.safeName, file),

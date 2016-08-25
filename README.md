@@ -4,7 +4,7 @@
 * Visual Studio 2015 Update 3
 * Visual Studio Code
 * [ASP.NET Core 1.0](https://www.microsoft.com/net/core)
-* Angular 2 RC4
+* Angular 2 RC5
 * Material Design Lite
 * Swagger via [Swashbuckle (Ahoy)](https://github.com/domaindrivendev/Ahoy)
 
@@ -30,7 +30,6 @@ From the root folder, type the following commands:
 
 ```
 cd src/webapp
-npm install
 tsc
 dotnet restore
 dotnet run

@@ -4,8 +4,7 @@ import { CharacterService } from '../shared/character.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'home.component.html',
-    providers: [CharacterService]
+    templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
     characters: string[];
