@@ -4,7 +4,7 @@
 * Visual Studio 2015 Update 3
 * Visual Studio Code
 * [ASP.NET Core 1.0](https://www.microsoft.com/net/core)
-* Angular 2 RC6
+* Angular 2
 * Material Design Lite
 * Swagger via [Swashbuckle (Ahoy)](https://github.com/domaindrivendev/Ahoy)
 
