@@ -236,3 +236,10 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
