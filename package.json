@@ -23,7 +23,11 @@
     "angular2",
     "typescript",
     "swagger",
-    "swashbuckle"
+    "swashbuckle",
+    "webpack",
+    "karma",
+    "protractor",
+    "universal"
   ],
   "dependencies": {
     "yeoman-generator": "^0.23.0",

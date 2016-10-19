@@ -1,11 +1,22 @@
 # generator-aspnetcore-angular2
-> Generate a Visual Studio/Code project for ASP.NET Core, Angular 2, and TypeScript
+> Generate a Visual Studio/Code project for ASP.NET Core, Angular 2, and TypeScript 2 using Webpack
 
+## Two templates
+1. Basic - nothing fancy, same as previous versions (doesn't use webpack)
+2. Advanced - Angular Universal, webpack, Karma, Protractor, TS2, HMR
+
+## Features
 * Visual Studio 2015 Update 3
 * Visual Studio Code
-* [ASP.NET Core 1.0](https://www.microsoft.com/net/core)
-* Angular 2
-* Material Design Lite
+* [ASP.NET Core 1.0.1](https://www.microsoft.com/net/core)
+* Angular 2.1.0
+* Angular Universal
+* Lazy routes
+* TypeScript 2
+* Webpack
+* Karma
+* Protractor
+* Bootstrap/Material Design Lite
 * Swagger via [Swashbuckle (Ahoy)](https://github.com/domaindrivendev/Ahoy)
 
 
@@ -24,15 +35,35 @@ Then generate your new project:
 yo aspnetcore-angular2
 ```
 
-## command line
+## Command line
 
 From the root folder, type the following commands:
 
+### Basic template
 ```
 cd src/webapp
 tsc
 dotnet restore
 dotnet run
+```
+
+### Advanced template
+
+```
+cd src/webapp
+dotnet restore
+npm run build:vendor
+set ASPNETCORE_ENVIRONMENT=Development
+npm start
+```
+
+Other commands:
+
+```
+npm run lint
+npm run test
+npm run e2e             (while running the app)
+npm clean:dist          (cleanup dist directory)
 ```
 
 ## Result
