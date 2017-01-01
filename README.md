@@ -63,7 +63,7 @@ Other commands:
 npm run lint
 npm run test
 npm run e2e             (while running the app)
-npm clean:dist          (cleanup dist directory)
+npm run clean:dist      (cleanup dist directory)
 ```
 
 ## Result
